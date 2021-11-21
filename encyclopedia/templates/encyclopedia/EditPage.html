@@ -1,0 +1,30 @@
+{% extends "encyclopedia/layout.html" %}
+
+{% block title %}
+    Edit {{ title }}
+{% endblock %}
+
+{% block body %}
+    <h1>{{ title }}</h1>
+
+    <p> : On each entry page, the user should be able to click a link to be taken to a page where the user can edit that entry’s Markdown content in a textarea.
+The textarea should be pre-populated with the existing Markdown content of the page. (i.e., the existing content should be the initial value of the textarea).
+The user should be able to click a button to save the changes made to the entry.
+Once the entry is saved, the user should be redirected back to that entry’s page. </p>
+
+    <ul>
+        {% for entry in entries %}
+            <li>{{ entry }}</li>
+        {% endfor %}
+    </ul>
+
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <div class="alert alert-warning role="alert">
+        <li>{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        <div>
+        {% endfor %}
+    </ul>
+    {% endif %}
+{% endblock %}
