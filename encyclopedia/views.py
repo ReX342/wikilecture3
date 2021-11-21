@@ -4,6 +4,19 @@ from django.contrib import messages
 
 from . import util
 
+def entry():
+    pass
+
+def new_entry():
+    pass
+
+def edit_entry():
+    pass
+
+def overview_entries(request):
+    entries = util.list_entries()
+    return render(request("render('entries.html", { 'entires': entries}))
+    # pass
 
 def index(request):
     return render(request, "encyclopedia/index.html", {

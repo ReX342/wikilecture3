@@ -1,0 +1,9 @@
+{ % extends "layout.html" %}
+
+{% blcok content %}
+ <ul>
+    {% for entry in entries %}
+    <li> {{ entry }}</li>
+    {% endfor %}
+ </ul>
+{% endblock content%}
