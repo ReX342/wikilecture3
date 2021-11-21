@@ -15,8 +15,12 @@ def edit_entry():
 
 def overview_entries(request):
     entries = util.list_entries()
-    return render(request("render('entries.html", { 'entires': entries}))
+    return render(request, 'encyclopedia/entries.html', { 'entries': entries})
     # pass
+    
+def view_entry(request, entry_name):
+    entry_content = util.get_entry(entry_name)
+    return render(request, "encyclopedia/entry.html", {'name': entry_name, 'content': entry_content })
 
 def index(request):
     return render(request, "encyclopedia/index.html", {
