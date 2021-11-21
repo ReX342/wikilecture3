@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.http import HttpResponse, HttpResponseNotFound
+from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.contrib import messages
 import markdown
 
@@ -20,8 +20,13 @@ def overview_entries(request):
     # pass
     
 def view_entry(request, entry_name):
-    entry_content = util.get_entry(entry_name)
-    return render(request, "encyclopedia/entry.html", {'name': entry_name, 'content': entry_content })
+    if not entry_name in util.list_entries():
+        # Maybe run this in custom 404 page later? or not_found
+        return HttpResponseNotFound("Could not find an entry for that")    
+        
+    entry_content = util.get_entry(entry_name)    
+    html_content = markdown.markdown(entry_content)    
+    return render(request, "encyclopedia/entry.html", {'name': entry_name, 'content': html_content })
 
 def index(request):
     return render(request, "encyclopedia/index.html", {
