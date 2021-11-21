@@ -35,14 +35,17 @@ def index(request):
 
 # Use functions given in util.py
 # util.list_entries, util.save_entry, util.get_entry
-def EditPage(title, content):
+# all fucntions get request argument (Not title, content)
+def CreateNew(request):
     gottenEntry = util.get_entry()
     SaveEntry = util.save_entry()
     #on SaveEntry:
     if gottenEntry == title:
         messages.warning(request, "This entry already exists!")
+    #else
+    # SaveEntry
     
- 
+    
  # 404
  # view function to display a single post
  # def post_detail example(request, primary key)

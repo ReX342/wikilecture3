@@ -1,11 +1,18 @@
 {% extends "encyclopedia/layout.html" %}
 
 {% block title %}
-    Edit {{ title }}
+    Create New Page: {{ title }}
 {% endblock %}
 
 {% block body %}
     <h1>{{ title }}</h1>
+
+    {% comment %} <form action="/your-name/" method="post">
+    <label for="your_name">Your name: </label>
+    <input id="your_name" type="text" name="your_name" value="{{ current_name }}">
+    <input type="submit" value="OK">
+    </form> {% endcomment %}
+    {% comment %} Control-k Control-c to put something in comment. {% endcomment %}
 
     <p> : On each entry page, the user should be able to click a link to be taken to a page where the user can edit that entry’s Markdown content in a textarea.
 The textarea should be pre-populated with the existing Markdown content of the page. (i.e., the existing content should be the initial value of the textarea).
