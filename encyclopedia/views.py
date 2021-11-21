@@ -13,8 +13,8 @@ def index(request):
 # Use functions given in util.py
 # util.list_entries, util.save_entry, util.get_entry
 def EditPage(title, content):
-    gottenEntry = util.get_entry
-    SaveEntry = util.save_entry
+    gottenEntry = util.get_entry()
+    SaveEntry = util.save_entry()
     #on SaveEntry:
     if gottenEntry == title:
         messages.warning(request, "This entry already exists!")
